@@ -1,0 +1,30 @@
+---
+cluster: "secretariat"
+attributes:
+  # Set the corresponding modules that need to be loaded for Jupyter to run
+  #
+  # @note It is called within the batch job as `module load <modules>` if
+  #   defined
+  # @example Do not load any modules
+  #     modules: ""
+  # @example Using default python module
+  #     modules: "python"
+  # @example Using specific python module
+  #     modules: "python/3.5"
+  # @example Using combination of modules
+  #     modules: "python/3.5 cuda/8.0.44"
+  custom_queue:
+    label: Queue
+    help: Please select a queue from the drop-down.
+    widget: select
+    options:
+      - [ "compute", "compute" ]
+      - [ "bigmem", "bigmem" ] 
+form:
+  - bc_account
+  - custom_queue
+  - bc_num_hours
+  - bc_num_slots
+  - num_cores
+  - memory_mb
+  - bc_email_on_started

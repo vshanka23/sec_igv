@@ -1,0 +1,13 @@
+---
+script:
+  native:
+  queue_name: <%= custom_queue %>
+  native:
+    - "-N"
+    - "<%= bc_num_slots.blank? ? 1 : bc_num_slots.to_i %>"
+    - "-n"
+    - "<%= num_cores.blank? ? 1 : num_cores.to_i %>"
+    - "--mem"
+    - "<%= memory_mb.blank? ? 4000 : memory_mb.to_i %>"
+batch_connect:
+  template: "vnc"
